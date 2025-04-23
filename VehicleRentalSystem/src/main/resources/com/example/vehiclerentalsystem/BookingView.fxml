@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.GridPane?>
+
+<VBox xmlns="http://javafx.com/javafx/22"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.vehiclerentalsystem.controllers.BookingController"
+      spacing="10" alignment="CENTER" style="-fx-padding: 20;">
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Button text="← Back to Dashboard" onAction="#handleBackToDashboard"
+                style="-fx-font-size: 14px; -fx-background-color: #3498db; -fx-text-fill: white;"/>
+        <Label text="Booking Management" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    </HBox>
+
+    <GridPane hgap="10" vgap="10">
+        <Label text="Customer:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <ComboBox fx:id="customerComboBox" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+
+        <Label text="Vehicle:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <ComboBox fx:id="vehicleComboBox" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+        <Label text="Start Date:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <DatePicker fx:id="startDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+        <Label text="End Date:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <DatePicker fx:id="endDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Create Booking" onAction="#handleAddBooking"/>
+        <Button text="Cancel Booking" onAction="#handleCancelBooking" style="-fx-background-color: #e74c3c; -fx-text-fill: white;"/>
+    </HBox>
+
+    <TableView fx:id="bookingTable" onMouseClicked="#handleTableClick">
+        <columns>
+            <TableColumn fx:id="bookingIdColumn" text="Booking ID"/>
+            <TableColumn fx:id="customerColumn" text="Customer"/>
+            <TableColumn fx:id="vehicleColumn" text="Vehicle"/>
+            <TableColumn fx:id="startDateColumn" text="Start Date"/>
+            <TableColumn fx:id="endDateColumn" text="End Date"/>
+            <TableColumn fx:id="statusColumn" text="Status"/>
+        </columns>
+    </TableView>
+
+</VBox>
